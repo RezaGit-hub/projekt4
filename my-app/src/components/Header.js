@@ -1,10 +1,11 @@
 import React from "react";
+import "../style.css"
 
 function Header(){
     return(
-         <div>
+         <div className="header">
             <h1>React</h1>
-            <ul>
+            <ul className="ul-tag">
                 <li><a>Home</a></li>
                 <li><a>Über uns</a></li>
                 <li><a>Konatkt</a></li>
