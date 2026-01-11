@@ -11,6 +11,7 @@ function App(){
       <Header />
       <Body />
     </div>
+    <p>Webseite wurde von  <strong><a href="https://github.com/RezaGit-hub">Reza(GitHub)</a></strong> entwickelt</p>
     </>
 
   );
