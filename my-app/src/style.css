@@ -7,27 +7,33 @@
     list-style: none;
 }
 
-.main{
-    background-color: lightgrey;
+
+
+body{
+    background-color: rgb(215, 241, 241);
+    font-family: Arial, sans-serif;
+}
+
+.main{    
     width: 100%;
     height: 100vh;
     border-radius: 25px;
+    padding: 40px;
 }
 
 .header{
     display: flex;
     text-align:center;
     justify-content:space-between;
-    padding: 20px;
-    
+    padding: 20px 40px;
+    background: #ddd;
     box-shadow: 0 0 20px rgb(158, 156, 156);
     border-radius: 25px;
 }
 
 .ul-tag{
     display: flex;
-    text-align: center;
-    padding: 20px;
+    gap: 20px;
     
 }
 
@@ -47,25 +53,60 @@ a:hover{
 
 form{
     display: flex;
-    text-align: center;
-    justify-items: center;
+    background: #eee;
+    padding: 30px;
+    margin: 40px auto;
+    max-width: 700px;
+    box-shadow: 0 0 15px lightgrey;
+    border-radius: 25px;
     flex-direction: column;
-    padding: 20px;
-    margin: 20px;
-    
 }
 
-.input{    
+.input{   
+    display: flex; 
     flex-direction: column;
     padding: 10px;
-    margin-left: 10px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label{
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
 input{
-    width: 50%;
+    
+    width: 100%;
     padding: 10px;
     margin-top: 10px;
     border-radius: 10px;
-    border-radius: 15px;
+    border: 1px solid #999
+}
+
+.input span{
+    margin-top: 5px;
+    color: red;
+}
+
+button {
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: black;
+}
+
+
+p {
+    text-align: center;
+    margin-top: 30px;
 }
 

@@ -46,7 +46,7 @@ import "../style.css"
     }
 
     return(
-        <div>
+        <div className="mainpage">
             <form >
                <div className="input">
                    <label htmlFor="username">Benutzername</label>
