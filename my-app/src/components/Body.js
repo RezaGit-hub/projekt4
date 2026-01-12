@@ -1,49 +1,92 @@
-import React from "react";
+import React, {useState} from "react";
 import "../style.css"
+ function Body(){
+    const [name, setName] = useState("");
+    const [nameError, setNameError] = useState("");
+    const [email, setEmail] = useState("");
+    const [emailError, setEmailError] = useState("");
+    const [handynummer, setHandynummer] = useState("");
+    const [HandynummerError, setHandynummerError] = useState("");
 
-function Body(){
-    var checkFullName = document.getElementById("checkName");
-    var checkFullEmail = document.getElementById("checkEmail");
-    var checkFullHandynummer = document.getElementById("checkHandynummer");
-    var checkSubmit = document.getElementById("checkSubmit");
+    function validateName(value){
+        setName(value);
 
-    function checkFullName(){
-        var fullname = document.getElementById("user-name").value;
-        var fullname = fullname.lenght;
-        if(fullname < 1 ){
-            checkFullEmail.innerHTML = "Benutzname ist benötigt"
-            return false;
-        }
-        if(fullname != fullname.match(/^[A-ZA-z]+\s{1}[A-Za-z]+$/)){
-            checkFullEmail.innerHTML = "bitte geben Sie Vor und Nachname an"
+        if (value.length < 1){
+            setNameError("Benutzername ist erforderlich");
+        }else if (!/^[A-Za-z]+\s[A-Za-z]+$/.test(value)){
+            setNameError("bitte vor-Nachname eingeben");
+        }else{
+            setNameError("");
         }
     }
+
+    function validateEmail(value){
+        setEmail(value);
+
+        if (value.length < 1){
+            setEmailError("bitte Email eingeben");
+        }else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)){
+            setEmailError("bitte Email vollständig eingeben");
+        }else{
+            setEmailError("");
+        }
+    }
+
+    function validateHandynummer(value){
+        setHandynummer(value);
+
+        if (value.length < 11 || value.length > 13){
+            setHandynummerError("bitte handynummer vollständig eingeben");
+        }else if(!/^(?:\+49|0)1[5-7][0-9]{8}$/.test(value)){
+            setHandynummerError("bitte Handynummer richtig eingeben");
+        }
+        else{
+            setHandynummerError("");
+        }
+    }
+
     return(
         <div>
             <form >
                <div className="input">
-                   <div>
-                       <label for = "Benutzname">Benutzname</label>
-                   </div>                   
-                   <input type = "text" placeholder="bitte geben Sie Benutzname an" id="user-name" class ="style-input" oninput="Benutznamevalidation"></input>
-                   <span id="checkName"></span>
+                   <label htmlFor="username">Benutzername</label>
+                   <input
+                   id = "username"
+                   className="styleinput"
+                   type="text"
+                   value={name}
+                   onChange={(e) => validateName(e.target.value)}
+                   placeholder="bitte Benutzername eingeben"
+                   />
+                   <span>{nameError}</span>          
+                   
                </div>
                <div className="input">
-                   <div>
-                       <label for = "email">Email</label>
-                   </div>                   
-                   <input type = "text" placeholder="bitte geben Sie Email an" id="user-email" class ="style-input" oninput="Benutznamevalidation"></input>
-                   <span id="checkEmail"></span>
+                <label htmlFor="Email">Email</label>
+                <input
+                id="email"
+                className="style-input"
+                type="text"
+                value={email}
+                onChange={(e) => validateEmail(e.target.value)}
+                placeholder="bitte Email eingeben"
+                />
+                <span>{emailError}</span>
                </div>
                <div className="input">
-                   <div>
-                       <label for = "Handynummer">Handynummer</label>
-                   </div>                   
-                   <input type = "text" placeholder="bitte geben Sie Handynummer an" id="user-name" class ="style-input" oninput="Benutznamevalidation"></input>
-                   <span id="checkHandynummer"></span>
+                   <label htmlFor="Handynummer">Handynummer</label>
+                   <input
+                   id="handynummer"
+                   className="style-input"
+                   type="text"
+                   value={handynummer}
+                   onChange={(e) => validateHandynummer(e.target.value)}
+                   placeholder="bitte Handynummer eingeben"
+                   />
+                   <span>{HandynummerError}</span>
                </div>
-               <button type="submit" onClick=" return validateForm()" >Anmelden</button>
-               <span id="checkSubmit"></span>
+               <button type="submit">Anmelden</button>
+               
             </form>
             <p>Webseite wurde von  <strong><a href="https://github.com/RezaGit-hub">Reza(GitHub)</a></strong> entwickelt</p>
         </div>

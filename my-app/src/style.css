@@ -55,9 +55,10 @@ form{
     
 }
 
-.input{
+.input{    
+    flex-direction: column;
     padding: 10px;
-    
+    margin-left: 10px;
 }
 
 input{
